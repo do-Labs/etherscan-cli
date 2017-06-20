@@ -16,6 +16,6 @@
     "esversion": 6,
     "mocha": true,
     "predef": [
-        "console",
+        "console"
     ]
 }
