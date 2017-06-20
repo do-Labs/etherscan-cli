@@ -9,13 +9,13 @@
     "maxdepth": 3,
     "maxerr": 50,
     "nonew": true,
-    "unused": true,
+    "unused": false,
     "undef": true,
     "node": true,
     "mocha": true,
     "esversion": 6,
-    "mocha": true, 
+    "mocha": true,
     "predef": [
-        "console"
+        "console",
     ]
 }
