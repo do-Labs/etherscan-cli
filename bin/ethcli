@@ -2,14 +2,24 @@
 'use strict';
 
 // MEAN CLI.
-var program = require('commander'),
+const program = require('commander'),
   _ = require('lodash');
 
 // set program version
-var version = require('../package').version;
+const version = require('../package').version;
 program.version(version, '-v, --version');
 
-var description =
+const description =
 `Etherscan Cli - A command line blockchain explorer
   Bugreports and Feature Requests: https://github.com/sebs/etherscan-cli/issues
 `;
+program
+  .description(description)
+  .command('account', 'Account functions')
+  .parse(process.argv);
+
+  // print help with no args
+  if (program.args.length < 1) {
+    program.help();
+    program.exit(1);
+  }

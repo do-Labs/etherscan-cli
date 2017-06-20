@@ -1,0 +1,15 @@
+#!/usr/bin/env node
+const program = require('commander');
+const api = require('etherscan-api').init('YourApiKey');
+program
+  .description('desc')
+  .command('balance', 'account balance')
+  .usage('[options] <ADRESS>')
+  .parse(process.argv);
+
+// print help with no args
+if (program.args.length < 1 || program.args[0] == '') {
+   program.help();
+}
+var balance = api.account.balance(program.args[0]);
+balance.then(console.log)

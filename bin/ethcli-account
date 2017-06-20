@@ -1,0 +1,11 @@
+#!/usr/bin/env node
+const program = require('commander');
+
+program
+  .description('desc')
+  .command('balance', 'Balance')
+  .command('getminedblocks', 'getminedblocks')
+  .command('tokenbalance', 'tokenbalance')
+  .command('txlist', 'txlist')
+  .command('txlistinternal', 'txlistinternal')
+  .parse(process.argv);

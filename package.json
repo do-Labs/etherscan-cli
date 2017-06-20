@@ -28,6 +28,7 @@
     "url": "https://github.com/sebs/etherscan-cli/issues"
   },
   "dependencies": {
+    "blessed": "^0.1.81",
     "blessed-contrib": "^4.7.5",
     "commander": "^2.9.0",
     "etherscan-api": "^3.0.5",
