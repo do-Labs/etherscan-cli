@@ -12,9 +12,9 @@ describe('etherscan-cli', function() {
   var exec = require('child-process-promise').exec;
 
   var commands =[
-    './bin/cli -h',
-    './bin/cli a',
-    'echo foo | ./bin/cli'
+    './bin/ethcli -h',
+    './bin/ethcli a',
+    'echo foo | ./bin/ethcli'
   ];
 
   it('executes the commands', function(done) {

@@ -1,0 +1,15 @@
+#!/usr/bin/env node
+'use strict';
+
+// MEAN CLI.
+var program = require('commander'),
+  _ = require('lodash');
+
+// set program version
+var version = require('../package').version;
+program.version(version, '-v, --version');
+
+var description =
+`Etherscan Cli - A command line blockchain explorer
+  Bugreports and Feature Requests: https://github.com/sebs/etherscan-cli/issues
+`;
