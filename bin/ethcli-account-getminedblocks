@@ -24,7 +24,7 @@ balance.then(function(res) {
        , selectedFg: 'white'
        , selectedBg: 'blue'
        , interactive: true
-       , label: 'Active Processes'
+       , label: 'Mined Blocks for ' + program.args[0]
        , border: {type: "line", fg: "cyan"}
        , columnSpacing: 10 //in chars
        , columnWidth: [16, 12, 12] /*in chars*/ })
@@ -32,19 +32,17 @@ balance.then(function(res) {
        //allow control the table with the keyboard
        table.focus()
 
-       var data = res.result.map(function(item) {
-         return [item.blockNumber, item.timeStamp, item.blockReward]
-       })
-
-       table.setData(
-         { headers: ['blockNumber', 'timeStamp', 'blockReward'], data: data
-       })
-
-        screen.render()
-
-    screen.key(['escape', 'q', 'C-c'], function(ch, key) {
-    return process.exit(0);
+  var data = res.result.map(function(item) {
+    return [item.blockNumber, item.timeStamp, item.blockReward]
   });
+
+  table.setData(
+   { headers: ['blockNumber', 'timeStamp', 'blockReward'], data: data
+  });
+  screen.render()
+  screen.key(['escape', 'q', 'C-c'], function(ch, key) {
+  return process.exit(0);
+});
 
 
 }).catch(function(err) {

@@ -16,6 +16,7 @@ const description =
 program
   .description(description)
   .command('account', 'Account functions')
+  .command('proxy', 'A proxy to a web3 backend')
   .parse(process.argv);
 
   // print help with no args

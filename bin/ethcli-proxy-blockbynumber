@@ -1,0 +1,44 @@
+#!/usr/bin/env node
+const program = require('commander');
+const api = require('etherscan-api').init('YourApiKey');
+
+const blessed = require('blessed')
+const contrib = require('blessed-contrib')
+const screen = blessed.screen()
+
+
+
+program
+  .description('desc')
+  .command('blockbynumber', 'block by number balance')
+  .usage('[options] <ADRESS>')
+  .parse(process.argv);
+
+// print help with no args
+if (program.args.length < 1 || program.args[0] == '') {
+   program.help();
+}
+var blockInfo = api.proxy.eth_getBlockByNumber(program.args[0]);
+blockInfo.then(function(res) {
+  return res.result
+}).then(function(result) {
+  const grid = new contrib.grid({rows: 12, cols: 12, screen: screen})
+  const box = grid.set(0, 0, 4, 4, blessed.box, {content: 'User'});
+  const box2 = grid.set(0, 4, 4, 4, blessed.log, { fg: "green"
+  , selectedFg: "green"
+  , label: 'Sealed'});
+  const box3 = grid.set(5, 0, 4, 12, blessed.log, { fg: "green"
+  , selectedFg: "green"
+  , label: 'Log'});
+
+  result.transactions.map(function(item) {
+    box3.log('from: ' + item.from + ' to: ' + item.to)
+  });
+  result.sealFields.map(function(field) {
+    box2.log(field)
+  })
+  screen.render();
+})
+screen.key(['escape', 'q', 'C-c'], function(ch, key) {
+  return process.exit(0);
+});
