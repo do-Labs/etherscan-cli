@@ -1,6 +1,11 @@
 #!/usr/bin/env node
 const program = require('commander');
 const api = require('etherscan-api').init('YourApiKey');
+
+var blessed = require('blessed')
+  , contrib = require('blessed-contrib')
+  , screen = blessed.screen();
+
 program
   .description('desc')
   .command('getminedblocks', 'getminedblocks')
@@ -13,5 +18,36 @@ if (program.args.length < 1 || program.args[0] == '') {
 }
 var balance = api.account.getminedblocks(program.args[0]);
 balance.then(function(res) {
-  console.log(JSON.stringify(res, null, 4))
+  var table = contrib.table(
+       { keys: true
+       , fg: 'white'
+       , selectedFg: 'white'
+       , selectedBg: 'blue'
+       , interactive: true
+       , label: 'Active Processes'
+       , border: {type: "line", fg: "cyan"}
+       , columnSpacing: 10 //in chars
+       , columnWidth: [16, 12, 12] /*in chars*/ })
+        screen.append(table)
+       //allow control the table with the keyboard
+       table.focus()
+
+       var data = res.result.map(function(item) {
+         return [item.blockNumber, item.timeStamp, item.blockReward]
+       })
+
+       table.setData(
+         { headers: ['blockNumber', 'timeStamp', 'blockReward'], data: data
+       })
+
+        screen.render()
+
+    screen.key(['escape', 'q', 'C-c'], function(ch, key) {
+    return process.exit(0);
+  });
+
+
+}).catch(function(err) {
+  console.error(err);
+  return process.exit(1);
 })
