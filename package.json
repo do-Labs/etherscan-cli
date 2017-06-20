@@ -1,9 +1,10 @@
 {
   "name": "etherscan-cli",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "cli access to etherscan.io",
   "main": "index.js",
   "scripts": {
+    "preversion":"rm package-lock.json",
     "test": "mocha",
     "lint": "jshint index.js test",
     "preversion": "npm run lint",
@@ -22,7 +23,7 @@
     "ethcli": "bin/ethcli"
   },
   "keywords": [],
-  "author": "Sebastian Sch端rmann &lt;sebs@2xs.org&gt;",
+  "author": "Sebastian Schç«¯rmann &lt;sebs@2xs.org&gt;",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/sebs/etherscan-cli/issues"
