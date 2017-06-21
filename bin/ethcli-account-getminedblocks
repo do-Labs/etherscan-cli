@@ -20,7 +20,6 @@ minedblocks.then(function(res) {
   screen.append(table)
   layout.render(table, res)
   screen.render();
-
 }).catch(function(err) {
   console.error('err', err);
   process.exit(1);
