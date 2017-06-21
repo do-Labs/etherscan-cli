@@ -1,8 +1,7 @@
 #!/usr/bin/env node
 const program = require('commander');
 const api = require('../lib/init-api')();
-const { blessed, screen, contrib} = require('../lib/init-blessed')();
-
+ 
 program
   .description('desc')
   .command('getminedblocks', 'getminedblocks')
@@ -13,36 +12,16 @@ program
 if (program.args.length < 1 || program.args[0] == '') {
    program.help();
 }
-var balance = api.account.getminedblocks(program.args[0]);
-balance.then(function(res) {
-  var table = contrib.table(
-       { keys: true
-       , fg: 'white'
-       , selectedFg: 'white'
-       , selectedBg: 'blue'
-       , interactive: true
-       , label: 'Mined Blocks for ' + program.args[0]
-       , border: {type: "line", fg: "cyan"}
-       , columnSpacing: 10 //in chars
-       , columnWidth: [16, 12, 12] /*in chars*/ })
-        screen.append(table)
-       //allow control the table with the keyboard
-       table.focus()
-
-  var data = res.result.map(function(item) {
-    return [item.blockNumber, item.timeStamp, item.blockReward]
-  });
-
-  table.setData(
-   { headers: ['blockNumber', 'timeStamp', 'blockReward'], data: data
-  });
-  screen.render()
-  screen.key(['escape', 'q', 'C-c'], function(ch, key) {
-  return process.exit(0);
-});
-
+const { blessed, screen, contrib} = require('../lib/init-blessed')();
+const layout = require('../lib/layout/proxy/getminedblocks')(contrib); 
+const minedblocks = api.account.getminedblocks(program.args[0]);
+minedblocks.then(function(res) {
+  const table = layout.init(program.args[0]);
+  screen.append(table)
+  layout.render(table, res)
+  screen.render();
 
 }).catch(function(err) {
-  console.error(err);
-  return process.exit(1);
-})
+  console.error('err', err);
+  process.exit(1);
+});

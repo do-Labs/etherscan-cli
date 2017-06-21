@@ -17,6 +17,7 @@ program
   .description(description)
   .command('account', 'Account functions')
   .command('proxy', 'A proxy to a web3 backend')
+  .option('--json', 'Only JSON output')
   .parse(process.argv);
 
   // print help with no args
@@ -24,4 +25,3 @@ program
     program.help();
     program.exit(1);
   }
-  
