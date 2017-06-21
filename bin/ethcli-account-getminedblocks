@@ -1,10 +1,7 @@
 #!/usr/bin/env node
 const program = require('commander');
-const api = require('etherscan-api').init('YourApiKey');
-
-var blessed = require('blessed')
-  , contrib = require('blessed-contrib')
-  , screen = blessed.screen();
+const api = require('../lib/init-api')();
+const { blessed, screen, contrib} = require('../lib/init-blessed')();
 
 program
   .description('desc')

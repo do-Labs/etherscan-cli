@@ -4,7 +4,7 @@ const api = require('../lib/init-api')();
 
 program
   .description('desc')
-  .command('balance', 'account balance')
+  .command('txlist', 'txlist')
   .usage('[options] <ADRESS>')
   .parse(process.argv);
 
@@ -12,5 +12,5 @@ program
 if (program.args.length < 1 || program.args[0] == '') {
    program.help();
 }
-var balance = api.account.balance(program.args[0]);
+var balance = api.account.tokenbalance(program.args[0]);
 balance.then(console.log)
