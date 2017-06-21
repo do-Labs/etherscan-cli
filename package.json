@@ -10,7 +10,7 @@
     "docs": "marked-man ./man/ethcli.md > ./man/ethcli.1",
     "postversion": "git push && git push --tags && npm run changelog && git push ",
     "postinstall": "npm run docs && npm run setpermissions",
-    "setpermissions": "chmod ugo+x ./bin/cli",
+    "setpermissions": "chmod ugo+x ./bin/*",
     "changelog": "rm CHANGELOG.md && changelog https://github.com/sebs/etherscan-cli all > CHANGELOG.md && git add . && git commit . -m changelog && git push"
   },
   "repository": {
@@ -22,7 +22,7 @@
     "ethcli": "bin/ethcli"
   },
   "keywords": [],
-  "author": "Sebastian Schç«¯rmann &lt;sebs@2xs.org&gt;",
+  "author": "Sebastian SchÃ§Â«Â¯rmann &lt;sebs@2xs.org&gt;",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/sebs/etherscan-cli/issues"
