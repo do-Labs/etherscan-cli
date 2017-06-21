@@ -1,9 +1,11 @@
 2017-06-21
 ==========
 
+  * 0.0.7
+  * Setpermissions
+  * changelog
   * 0.0.6
   * v
-  * changelog
   * 0.0.5
   * new components
 
