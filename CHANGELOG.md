@@ -1,9 +1,11 @@
 2017-06-21
 ==========
 
+  * 0.0.11
+  * --json
+  * changelog
   * 0.0.10
   * General api cleanup
-  * changelog
   * 0.0.9
   * Cleaner cli programs
   * 0.0.8
