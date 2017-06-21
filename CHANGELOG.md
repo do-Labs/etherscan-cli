@@ -1,9 +1,11 @@
 2017-06-21
 ==========
 
+  * 0.0.12
+  * Tokenbalance with json
+  * changelog
   * 0.0.11
   * --json
-  * changelog
   * 0.0.10
   * General api cleanup
   * 0.0.9
