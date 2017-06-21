@@ -1,9 +1,13 @@
 2017-06-21
 ==========
 
+  * 0.0.8
+  * Skeletons for all programs
+  * Typo
+  * More tests
+  * changelog
   * 0.0.7
   * Setpermissions
-  * changelog
   * 0.0.6
   * v
   * 0.0.5
