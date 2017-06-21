@@ -6,6 +6,8 @@ program
   .description('desc')
   .command('balance', 'account balance')
   .usage('[options] <ADRESS>')
+  .option('--tokenname, -t', 'name of the token')
+  .option('--contractaddress, -c', 'address of the contract')
   .option('--json', 'Only JSON output')
   .parse(process.argv);
 
