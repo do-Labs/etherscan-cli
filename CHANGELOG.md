@@ -1,9 +1,11 @@
 2017-06-21
 ==========
 
+  * 0.0.10
+  * General api cleanup
+  * changelog
   * 0.0.9
   * Cleaner cli programs
-  * changelog
   * 0.0.8
   * Skeletons for all programs
   * Typo
