@@ -1,9 +1,11 @@
 2017-06-21
 ==========
 
+  * 0.0.14
+  * layout stuff
+  * changelog
   * 0.0.13
   * Removed the layout code from the cli script
-  * changelog
   * 0.0.12
   * Tokenbalance with json
   * 0.0.11
