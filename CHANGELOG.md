@@ -1,9 +1,10 @@
 2017-06-21
 ==========
 
+  * 0.0.15
+  * changelog
   * 0.0.14
   * layout stuff
-  * changelog
   * 0.0.13
   * Removed the layout code from the cli script
   * 0.0.12
