@@ -13,13 +13,11 @@ if (program.args.length < 1 || program.args[0] == '') {
    program.help();
 }
 const { blessed, screen, contrib} = require('../lib/init-blessed')();
-const layout = require('../lib/layout/proxy/getminedblocks')(contrib); 
+const layout = require('../lib/layout/account/getminedblocks')(contrib, screen); 
 const minedblocks = api.account.getminedblocks(program.args[0]);
 minedblocks.then(function(res) {
-  const table = layout.init(program.args[0]);
-  screen.append(table)
-  layout.render(table, res)
-  screen.render();
+  layout.init(program.args[0]);
+  layout.render(res);
 }).catch(function(err) {
   console.error('err', err);
   process.exit(1);
