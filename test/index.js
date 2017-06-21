@@ -13,7 +13,11 @@ describe('etherscan-cli', function() {
 
   var commands =[
     './bin/ethcli -h',
-    './bin/ethcli a',
+    './bin/ethcli account -h',
+    './bin/ethcli account balance -h',
+    './bin/ethcli account getminedblocks -h',
+    './bin/ethcli proxy -h',
+    './bin/ethcli proxy blockbynumber -h',
     'echo foo | ./bin/ethcli'
   ];
 
