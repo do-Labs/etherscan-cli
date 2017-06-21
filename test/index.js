@@ -11,7 +11,7 @@ describe('etherscan-cli', function() {
   const assert = require('chai').assert;
   var exec = require('child-process-promise').exec;
 
-  var commands =[
+  var commands = [
     './bin/ethcli -h',
     './bin/ethcli account -h',
     './bin/ethcli account balance -h',
