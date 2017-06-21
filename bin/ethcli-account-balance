@@ -6,6 +6,7 @@ program
   .description('desc')
   .command('balance', 'account balance')
   .usage('[options] <ADRESS>')
+  .option('--json', 'Only JSON output')
   .parse(process.argv);
 
 // print help with no args
@@ -13,4 +14,24 @@ if (program.args.length < 1 || program.args[0] == '') {
    program.help();
 }
 var balance = api.account.balance(program.args[0]);
-balance.then(console.log)
+
+var renderCli = function(res){
+  console.log(res.result)
+}
+
+function renderJson(res) {
+  if (program.json) {
+    console.log(JSON.stringify(res, null, 2));
+    process.exit(0);
+  }
+  return res;
+}
+
+balance
+  .then(renderJson)
+  .then(renderCli)
+  .catch(function(err) {
+    console.error('err', err);
+    process.exit(1);
+  });
+
