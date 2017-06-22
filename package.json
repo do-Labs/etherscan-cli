@@ -1,6 +1,6 @@
 {
   "name": "etherscan-cli",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "description": "cli access to etherscan.io",
   "main": "index.js",
   "scripts": {
