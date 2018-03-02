@@ -1,6 +1,9 @@
 2018-03-02
 ==========
 
+  * 0.1.1
+  * Fix autorelease
+  * changelog
   * 0.1.0
   * Update deps
 
